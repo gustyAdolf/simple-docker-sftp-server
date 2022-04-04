@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  ersftp:
+    container_name: er_container
+    build:
+      context: ./er-server-conf
+      args: # Creacion usuario para sftp a00038 pass 8hjkj9jk
+        USER: "a00038"
+        PW: "8hjkj9jk"
+    ports:
+      - 22:22
+    volumes:
+      - ./er-server-conf/er-files:/home/a00038/ficheros/batchULL
+
+    command: tail -f /dev/null
